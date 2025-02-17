@@ -1,0 +1,4 @@
+SPOTIFY_CLIENT_ID="your_spotify_client_id"
+SPOTIFY_CLIENT_SECRET="your_spotify_client_secret"
+LISTEN_NOTES_API_KEY="your_listen_notes_api_key"
+GEMINI_API_KEY="your_gemini_api_key" 

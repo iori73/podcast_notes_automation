@@ -71,6 +71,34 @@ class LocalAudioProcessor:
             print(f"長さの取得に失敗: {str(e)}")
             return ""
 
+    # def process_local_audio(self, mp3_path, metadata=None):
+    #     try:
+    #         # MP3ファイルの存在確認
+    #         audio_file = Path(mp3_path)
+    #         if not audio_file.exists():
+    #             raise FileNotFoundError(f"File not found: {mp3_path}")
+
+    #         # メタデータがない場合はファイル情報から生成
+    #         if metadata is None:
+    #             duration = self.get_audio_duration(mp3_path)
+    #             metadata = {
+    #                 "title": audio_file.stem,
+    #                 "release_date": datetime.fromtimestamp(audio_file.stat().st_mtime).strftime('%Y年%m月%d日'),
+    #                 "duration": duration
+    #             }
+
+    #         # Summary.fm処理を実行
+    #         results = self.summary_processor.process_audio(
+    #             spotify_url=None,
+    #             release_date=metadata.get("release_date", ""),
+    #             duration=metadata.get("duration", "")
+    #         )
+
+    #         return results
+
+    #     except Exception as e:
+    #         print(f"ローカルファイル処理エラー: {str(e)}")
+    #         raise
     def process_local_audio(self, mp3_path, metadata=None):
         try:
             # MP3ファイルの存在確認
@@ -89,6 +117,7 @@ class LocalAudioProcessor:
 
             # Summary.fm処理を実行
             results = self.summary_processor.process_audio(
+                mp3_path=str(audio_file),  # MP3ファイルのパスを渡す
                 spotify_url=None,
                 release_date=metadata.get("release_date", ""),
                 duration=metadata.get("duration", "")
