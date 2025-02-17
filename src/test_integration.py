@@ -8,7 +8,7 @@ import sys
 
 def test_podcast_fetch():
     spotify_url = (
-        "https://open.spotify.com/episode/56WNOupwLtSufHuq0Y1HnD?si=9869b95291a6439a"
+        "https://open.spotify.com/episode/6RYMVFDNMuhzMj8fHCQWMs?si=4a47a7c64d604f62"
     )
 
     try:
@@ -147,23 +147,27 @@ if __name__ == "__main__":
 
     # ---------
     # def process_spotify_podcast():
-    spotify_url = (
-        "https://open.spotify.com/episode/3SO1dBFHK2mt2kQrPYRFVD?si=deb4cf1e67be487b"
-    )
 
-    # 1. Spotifyから情報取得
-    spotify_client = SpotifyClient()
-    episode_info = spotify_client.get_episode_info(spotify_url)
 
-    # 2. Listen Notesで対応する音声を検索・ダウンロード
-    ln_client = ListenNotesClient()
-    ln_url = ln_client.get_episode_url(episode_info["title"])
-    downloaded_file = ln_client.download_episode(ln_url, episode_info["title"])
 
-    # 3. 音声処理と要約生成
-    summary_processor = SummaryFMProcessor()
-    results = summary_processor.process_audio(
-        spotify_url=spotify_url,
-        release_date=episode_info["release_date"],
-        duration=f"{episode_info['duration_ms'] // (1000 * 60)}:{(episode_info['duration_ms'] // 1000) % 60:02d}",
-    )
+
+    # spotify_url = (
+    #     "https://open.spotify.com/episode/3SO1dBFHK2mt2kQrPYRFVD?si=deb4cf1e67be487b"
+    # )
+
+    # # 1. Spotifyから情報取得
+    # spotify_client = SpotifyClient()
+    # episode_info = spotify_client.get_episode_info(spotify_url)
+
+    # # 2. Listen Notesで対応する音声を検索・ダウンロード
+    # ln_client = ListenNotesClient()
+    # ln_url = ln_client.get_episode_url(episode_info["title"])
+    # downloaded_file = ln_client.download_episode(ln_url, episode_info["title"])
+
+    # # 3. 音声処理と要約生成
+    # summary_processor = SummaryFMProcessor()
+    # results = summary_processor.process_audio(
+    #     spotify_url=spotify_url,
+    #     release_date=episode_info["release_date"],
+    #     duration=f"{episode_info['duration_ms'] // (1000 * 60)}:{(episode_info['duration_ms'] // 1000) % 60:02d}",
+    # )

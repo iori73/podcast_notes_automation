@@ -24,7 +24,7 @@ class SummaryFMProcessor:
         options.add_argument('--no-sandbox')
         options.add_argument('--dns-prefetch-disable')
         self.driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
-        self.wait = WebDriverWait(self.driver, 300)
+        self.wait = WebDriverWait(self.driver, 60)
 
 
     def login_and_navigate(self):

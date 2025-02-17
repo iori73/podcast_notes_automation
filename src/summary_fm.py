@@ -31,7 +31,7 @@ class SummaryFMProcessor:
         self.driver = webdriver.Chrome(
             service=Service(ChromeDriverManager().install()), options=options
         )
-        self.wait = WebDriverWait(self.driver, 300)
+        self.wait = WebDriverWait(self.driver, 60)
 
     def login_and_navigate(self):
         """ログインして文字起こしページに移動"""
@@ -87,12 +87,18 @@ class SummaryFMProcessor:
                     continue
 
                 prompt = f"""
-                以下の日本語テキストを英語に翻訳してください。
+                以下の日本語テキスト## **文字起こし**を英語に翻訳してください。
                 元のテキストの意味と文脈を保持しながら、自然な英語に翻訳してください。
+                読みやすいように改行やパラグラフを適切に使用してください。新しく見出しなどは作成しないで、## **文字起こし**の文章に忠実に英訳してください。
 
                 テキスト:
                 {chunk}
                 """
+                # prompt = f"""
+                # Translate the following Japanese text into English, preserving its meaning and context:
+
+                # {chunk}
+                # """
                 try:
                     response = self.model.generate_content(prompt)
                     translated_sentences.append(response.text)
@@ -215,15 +221,15 @@ class SummaryFMProcessor:
                         f.write(english_text)
                         f.write("\n\n")
 
-                    # バイリンガル文字起こしセクションを追加
-                    f.write("\n## **バイリンガル文字起こし**\n\n")
-                    sentences = text_result.split("。")
-                    for i in range(0, len(sentences), 10):
-                        chunk = "。".join(sentences[i : i + 10])
-                        english_chunk = self.translate_to_english(chunk)
-                        if english_chunk:
-                            f.write(f"{english_chunk}\n\n")
-                            f.write(f"{chunk}\n\n")
+                    # # バイリンガル文字起こしセクションを追加
+                    # f.write("\n## **バイリンガル文字起こし**\n\n")
+                    # sentences = text_result.split("。")
+                    # for i in range(0, len(sentences), 10):
+                    #     chunk = "。".join(sentences[i : i + 10])
+                    #     english_chunk = self.translate_to_english(chunk)
+                    #     if english_chunk:
+                    #         f.write(f"{english_chunk}\n\n")
+                    #         f.write(f"{chunk}\n\n")
 
             print(f"結果を {output_dir} に保存しました")
 
