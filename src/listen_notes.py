@@ -80,6 +80,10 @@ class ListenNotesClient:
             return episode.get('listennotes_url')
         return None
 
+
+
+
+
     def download_episode(self, episode_url, episode_title):
         """エピソードの音声をダウンロード"""
         try:
