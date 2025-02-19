@@ -130,4 +130,3 @@ Before running the project, there are a few things you will need to set up.
 *   **403 Errors**: Even if data exists on LISTEN NOTES, a 403 error may occur when creating an MD file with `python src/test_integration.py`.
 *   **Separate Virtual Environments:** Due to potential conflicts, it's recommended to use separate virtual environments for `test_local_audio.py` and `test_integration.py`.
 *   **API Keys**: You need to configure the API keys for Spotify, Listen Notes, and Gemini AI in the `config.yaml` file.
-*   **Manual Language Setting**: Remember to manually adjust the language settings in `listen_notes.py` and `summary_fm.py` before processing.
