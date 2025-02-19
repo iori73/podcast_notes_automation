@@ -380,6 +380,10 @@ class SummaryFMProcessor:
 
             with open(output_dir / "episode_summary.md", "w", encoding="utf-8") as f:
                 f.write("## **基本情報**\n\n")
+                if spotify_url:
+                    f.write(f"- Spotify URL：[エピソードリンク]({spotify_url})\n")
+                else:
+                    f.write("- Spotify URL：[エピソードリンク]()\n")
                 f.write(f"- 公開日：{release_date if release_date else ''}\n")
                 f.write(f"- 長さ：{duration if duration else ''}\n")
                 f.write("\n## **要約**\n\n")

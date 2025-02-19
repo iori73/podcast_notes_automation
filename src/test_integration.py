@@ -171,7 +171,7 @@ import sys
 
 
 def test_podcast_fetch():
-    spotify_url = "https://open.spotify.com/episode/1DHZTc6ZvoHQ1UgiVTduKB?si=3697f486a6f443d5&nd=1&dlsi=6448aeab96114782"
+    spotify_url = "https://open.spotify.com/episode/1SrSuOxKG11MkR5W7AoRCq?si=fd406a16c22e4656"
 
     try:
         # **Spotifyからメタデータを取得**
