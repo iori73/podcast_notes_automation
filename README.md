@@ -1,4 +1,3 @@
-```markdown
 # Podcast Notes Automation Project
 
 This project is designed to **automatically generate notes for podcasts**. It supports processing both **Spotify URLs** and **local MP3 files**, extracting key information and creating summaries to streamline your podcast listening experience. This project can generate the basic information, a summary, a table of contents, and a transcription for a given podcast.
