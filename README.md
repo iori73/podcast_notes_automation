@@ -123,14 +123,8 @@ Before running the project, there are a few things you will need to set up.
         select.select_by_value("Japanese") # or "English"
         ```
 
-### 3. How to change the Language Setting
 
-*   Use the search function in your text editor.
-*   Search for "Japanese" or "English".
-*   Change the setting depending on the language of the podcast that you want to process.
-*   Make sure that the setting has been changed in both files.
-
-### 4. Important Notes
+### 3. Important Notes
 
 *   **Switching Between Processing Methods**: When switching between Spotify URL processing and local MP3 file processing, you may need to exit the terminal and rebuild the virtual environment.
 *   **403 Errors**: Even if data exists on LISTEN NOTES, a 403 error may occur when creating an MD file with `python src/test_integration.py`.
